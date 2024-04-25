@@ -1,6 +1,9 @@
 public class Main {
 
     public static void main(String[] args) {
-        Main main = new Main(); // Créer une instance de la classe Main
+        // créer une instance de la classe Personnage
+        Personnage personnage = new Personnage();
+        personnage = personnage.creerPersonnage();
+        System.out.println("Personnage créé : " + personnage.getNom() + " (" + personnage.getType() + ")");
     }
 }
