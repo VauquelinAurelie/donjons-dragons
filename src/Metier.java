@@ -5,7 +5,7 @@ public class Metier {
 
     // constructeur de la classe Metier sans paramètres
     public Metier(){
-        this.nom = "magicien";
+        this.nom = "Magicien";
         this.niveauVie = 6;
         this.forceAttaque = 15;
     }
