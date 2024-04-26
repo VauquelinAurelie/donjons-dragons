@@ -1,3 +1,5 @@
+package classes;
+
 public class EquipementOffensif { // Equipement offensif par défaut "arme" ou "sort"
     String type;
     int niveauAttaque;
