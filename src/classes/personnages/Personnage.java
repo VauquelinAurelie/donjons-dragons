@@ -1,4 +1,4 @@
-package classes;
+package classes.personnages;
 
 public class Personnage {
     private String nom;
@@ -7,19 +7,19 @@ public class Personnage {
     private String equipementDefensif;
     private int position;
 
-    // constructeur de la class classes.Personnage
+    // constructeur de la class classes.personnages.Personnage
     public Personnage() {
         //constucteur sans paramètres
         this.nom = "nouveau joueur";
         this.type = "Magicien";
         this.position = 1;
     }
-    // constructeur de la class classes.Personnage  avec le nom
+    // constructeur de la class classes.personnages.Personnage  avec le nom
     public Personnage(String nom) {
         this.nom = nom;
         this.type = "Magicien";
     }
-    // constructeur de la class classes.Personnage  avec le nom et le type
+    // constructeur de la class classes.personnages.Personnage  avec le nom et le type
     public Personnage(String nom, String type) {
         this.nom = nom;
         this.type = type;

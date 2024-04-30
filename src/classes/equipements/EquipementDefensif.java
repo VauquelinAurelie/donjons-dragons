@@ -1,4 +1,4 @@
-package classes;
+package classes.equipements;
 
 public class EquipementDefensif { // Equipement défensif par défaut "bouclier" ou "philtre"
     private String type;

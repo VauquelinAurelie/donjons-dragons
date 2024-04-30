@@ -1,17 +1,17 @@
-package classes;
+package classes.personnages;
 
 public class Metier {
     private String nom;
     private int niveauVie;
     private int forceAttaque;
 
-    // constructeur de la classe classes.Metier sans paramètres
+    // constructeur de la classe classes.personnages.Metier sans paramètres
     public Metier(){
         this.nom = "Magicien";
         this.niveauVie = 6;
         this.forceAttaque = 15;
     }
-    // constructeur de la classe classes.Metier
+    // constructeur de la classe classes.personnages.Metier
     public Metier(String nom, int niveauVie, int forceAttaque) {
         this.nom = nom;
         this.niveauVie = niveauVie;

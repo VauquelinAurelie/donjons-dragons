@@ -1,4 +1,6 @@
-package classes;
+package classes.game;
+import classes.personnages.Metier;
+import classes.personnages.Personnage;
 
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class Menu {
         int choix;
 
         do {
-            System.out.println("=== classes.Menu ===");
+            System.out.println("=== classes.game.Menu ===");
             System.out.println("1. Créer personnage");
             System.out.println("2. Modifier personnage");
             System.out.println("3. Démarrer la partie");
@@ -45,11 +47,11 @@ public class Menu {
         String nom = scanner.nextLine();
         System.out.print("Votre métier ( Guerrier ou Magicien ) : ");
         String type = scanner.nextLine();
-        Metier metier = new Metier(); //instancier un objet classes.Metier
+        Metier metier = new Metier(); //instancier un objet classes.personnages.Metier
         metier = metier.getMetierByNom(type);
         personnage = new Personnage(nom,type);
         System.out.println("Votre personnage : " + nom + " (" + type + ")");
-        return new Personnage (nom,type);
+        return new Personnage(nom,type);
     }
 
     public void modifierPersonnage(Personnage personnage) {
@@ -63,15 +65,20 @@ public class Menu {
         personnage.setNom(nouveauNom);
         personnage.setType(nouveauMetier);
 
-        System.out.println("classes.Personnage mis à jour : ");
+        System.out.println("classes.personnages.Personnage mis à jour : ");
         System.out.println("Nom : " + personnage.getNom());
         System.out.println("Métier : " + personnage.getType());
     }
 
     public void demarrerPartie(Personnage personnage) {
         personnage.setPosition(1); // Réinitialiser la position du personnage à 1
+        System.out.println("Vous êtes sur la case : " + personnage.getPosition());
+
+        // créer une instance de la classe Game
+        Game game = new Game();
+
         // Démarrer la boucle de jeu
-        Game.demarrerPartie(personnage);
+        game.demarrerPartie(personnage);
 
         // Demander au joueur s'il souhaite quitter le jeu ou recommencer une partie
         Scanner scanner = new Scanner(System.in);
