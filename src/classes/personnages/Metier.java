@@ -5,17 +5,27 @@ public class Metier {
     private int niveauVie;
     private int forceAttaque;
 
-    // constructeur de la classe classes.personnages.Metier sans paramètres
-    public Metier(){
-        this.nom = "Magicien";
-        this.niveauVie = 6;
-        this.forceAttaque = 15;
+    // constructeur sans arguments
+    public Metier() {
+
     }
-    // constructeur de la classe classes.personnages.Metier
+
+    // constructeur avec arguments
     public Metier(String nom, int niveauVie, int forceAttaque) {
         this.nom = nom;
         this.niveauVie = niveauVie;
         this.forceAttaque = forceAttaque;
+    }
+
+    // méthode pour obtenir un métier par nom
+    public Metier getMetierByNom(String nom) {
+        if (nom.equals("Guerrier")) {
+            return new Metier();
+        } else if (nom.equals("Magicien")) {
+            return new Metier();
+        } else {
+            throw new IllegalArgumentException("Métier invalide");
+        }
     }
 
     // Getters Setters
@@ -41,16 +51,5 @@ public class Metier {
 
     public void setForceAttaque(int forceAttaque) {
         this.forceAttaque = forceAttaque;
-    }
-
-    // méthode pour obtenir un métier par nom
-    public Metier getMetierByNom(String nom) {
-        if (nom.equals("Guerrier")) {
-            return new Metier("Guerrier", 10, 10);
-        } else if (nom.equals("Magicien")) {
-            return new Metier("Magicien", 6, 15);
-        } else {
-            throw new IllegalArgumentException("Métier invalide");
-        }
     }
 }

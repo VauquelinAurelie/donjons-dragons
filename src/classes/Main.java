@@ -1,5 +1,4 @@
 package classes;
-
 import classes.game.Game;
 import classes.game.Menu;
 import classes.personnages.Metier;

@@ -14,9 +14,16 @@ public class Plateau {
         int nombreEnnemis = 5;
         Random random = new Random();
         Set<Integer> positionsOccupees = new HashSet<>(); // stock les positions ennemis
+        String[] typesEnnemis = {"Sorcier", "Gobelin", "Dragon"};
 
         for (int i = 0; i < nombreEnnemis; i++) {
-            ennemis[i] = new Personnage();
+            // Choix aléatoire du type d'ennemi parmi les trois spécifiés
+            String typeEnnemi = typesEnnemis[random.nextInt(typesEnnemis.length)];
+
+            // Génération aléatoire du nom de l'ennemi
+            String nom = typeEnnemi + " " + (i + 1);
+
+            ennemis[i] = new Personnage(nom, "Ennemi"); // Création de l'ennemi avec le nom et le type spécifiés
             int positionEnnemi;
             do {
                 positionEnnemi = random.nextInt(nombreCase) + 1;
@@ -47,7 +54,7 @@ public class Plateau {
                 }while (positionsOccupeesSurprise.contains(positionSurprise));
                 positionsOccupeesSurprise.add(positionSurprise);
                 surprise[i].setPosition(positionSurprise);
-                System.out.println("Surprise " + (i + 1) + "positionné sur la case : " + positionSurprise);
+                System.out.println("Surprise " + (i + 1) + " positionné sur la case : " + positionSurprise); // affichage pour tester à supprimer
             }
         }
 }

@@ -3,28 +3,25 @@ package classes.personnages;
 public class Personnage {
     private String nom;
     private String type;
-    private String equipementOffensif;
-    private String equipementDefensif;
     private int position;
 
-    // constructeur de la class classes.personnages.Personnage
-    public Personnage() {
-        //constucteur sans paramètres
-        this.nom = "nouveau joueur";
-        this.type = "Magicien";
-        this.position = 1;
-    }
-    // constructeur de la class classes.personnages.Personnage  avec le nom
-    public Personnage(String nom) {
-        this.nom = nom;
-        this.type = "Magicien";
-    }
-    // constructeur de la class classes.personnages.Personnage  avec le nom et le type
+     // constructeur de la class classes.personnages.Personnage  avec le nom et le type
     public Personnage(String nom, String type) {
         this.nom = nom;
         this.type = type;
+        this.position = 1;
+    }
+    // Méthode pour obtenir la position du personnage
+    public int getPosition() {
+        return position;
     }
 
+    // Méthode pour définir la position du personnage
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    // Getters Setters
     public String getType() {
         return type;
     }
@@ -41,13 +38,5 @@ public class Personnage {
         this.nom = nom;
     }
 
-    // Méthode pour obtenir la position du personnage
-    public int getPosition() {
-        return position;
-    }
 
-    // Méthode pour définir la position du personnage
-    public void setPosition(int position) {
-        this.position = position;
-    }
 }
