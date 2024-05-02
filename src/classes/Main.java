@@ -1,7 +1,6 @@
 package classes;
 import classes.game.Game;
 import classes.game.Menu;
-import classes.personnages.Metier;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,8 +9,6 @@ public class Main {
         menu.afficherMenu();
         // créer une instance de la classe classes.game.Game
         Game game = new Game();
-        // Création d'une instance de Metier
-        Metier metier = new Metier();
         // Création d'une instance de Plateau
         Plateau plateau = new Plateau();
     }

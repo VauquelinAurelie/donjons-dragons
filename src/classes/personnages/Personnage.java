@@ -1,9 +1,9 @@
 package classes.personnages;
 
-public class Personnage {
-    private String nom;
-    private String type;
-    private int position;
+ public abstract class Personnage {
+    protected String nom;
+    protected String type;
+    protected int position;
 
      // constructeur de la class classes.personnages.Personnage  avec le nom et le type
     public Personnage(String nom, String type) {
@@ -11,6 +11,18 @@ public class Personnage {
         this.type = type;
         this.position = 1;
     }
+
+    @Override
+    public String toString() {
+        return "Personnage{" +
+                "nom='" + nom + '\'' +
+                ", type='" + type + '\'' +
+                ", position=" + position +
+                '}';
+    }
+     // Méthode abstraite pour attaquer
+     public abstract void attaquer();
+
     // Méthode pour obtenir la position du personnage
     public int getPosition() {
         return position;

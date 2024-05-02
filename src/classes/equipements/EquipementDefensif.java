@@ -1,9 +1,9 @@
 package classes.equipements;
 
-public class EquipementDefensif { // Equipement défensif par défaut "bouclier" ou "philtre"
-    private String type;
-    private int niveauDefense;
-    private String nom;
+ public abstract class EquipementDefensif { // Equipement défensif par défaut "bouclier" ou "philtre"
+    protected String type;
+    protected int niveauDefense;
+    protected String nom;
 
     // Constructeur
     public EquipementDefensif(String type, int niveauDefense, String nom) {
@@ -11,6 +11,10 @@ public class EquipementDefensif { // Equipement défensif par défaut "bouclier"
         this.niveauDefense = niveauDefense;
         this.nom = nom;
     }
+
+     // Redéfinition de la méthode toString
+     @Override
+     public abstract String toString();
 
     // Getters et setters
 }

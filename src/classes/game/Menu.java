@@ -1,5 +1,6 @@
 package classes.game;
-import classes.personnages.Metier;
+import classes.personnages.Guerrier;
+import classes.personnages.Magicien;
 import classes.personnages.Personnage;
 
 import java.util.Scanner;
@@ -22,13 +23,16 @@ public class Menu {
 
             switch (choix) {
                 case 1:
-                    creerPersonnage();
+                    personnage = creerPersonnage();
                     break;
                 case 2:
                     modifierPersonnage(personnage);
                     break;
                 case 3:
-                     demarrerPartie(personnage);
+                    Game game = new Game();
+                    demarrerPartie(personnage, game);
+
+//                     demarrerPartie(personnage, this);
                     break;
                 case 4:
                     System.out.println("Au revoir !");
@@ -47,11 +51,15 @@ public class Menu {
         String nom = scanner.nextLine();
         System.out.print("Votre métier ( Guerrier ou Magicien ) : ");
         String type = scanner.nextLine();
-        Metier metier = new Metier(); //instancier un objet classes.personnages.Metier
-        metier = metier.getMetierByNom(type);
-        personnage = new Personnage(nom,type);
-        System.out.println("Votre personnage : " + nom + " (" + type + ")");
-        return new Personnage(nom,type);
+
+        if (type.equalsIgnoreCase("Guerrier")) {
+            return new Guerrier(nom, type);
+        } else if (type.equalsIgnoreCase("Magicien")) {
+            return new Magicien(nom, type);
+        } else {
+            System.out.println("Choix invalide !");
+            return null;
+        }
     }
 
     public void modifierPersonnage(Personnage personnage) {
@@ -59,26 +67,26 @@ public class Menu {
         System.out.print("Nouveau nom : ");
         String nouveauNom = scanner.nextLine();
         System.out.print("Nouveau métier (Guerrier ou Magicien) : ");
-        String nouveauMetier = scanner.nextLine();
+        String nouveauType = scanner.nextLine();
 
         //  Mettre à jour les informations du personnage
         personnage.setNom(nouveauNom);
-        personnage.setType(nouveauMetier);
+        personnage.setType(nouveauType);
 
         System.out.println("classes.personnages.Personnage mis à jour : ");
         System.out.println("Nom : " + personnage.getNom());
         System.out.println("Métier : " + personnage.getType());
     }
 
-    public void demarrerPartie(Personnage personnage) {
+    public void demarrerPartie(Personnage personnage, Game game) {
         personnage.setPosition(1); // Réinitialiser la position du personnage à 1
         System.out.println("Vous êtes sur la case : " + personnage.getPosition());
 
         // créer une instance de la classe Game
-        Game game = new Game();
+       // Game game = new Game();
 
         // Démarrer la boucle de jeu
-        game.demarrerPartie(personnage);
+        game.demarrerPartie(personnage, this);
 
         // Demander au joueur s'il souhaite quitter le jeu ou recommencer une partie
         Scanner scanner = new Scanner(System.in);
@@ -91,7 +99,7 @@ public class Menu {
         switch (choix) {
             case 1:
                 // Recommencer une partie en relançant la méthode demarrerPartie
-                demarrerPartie(personnage);
+                demarrerPartie(personnage, game);
                 break;
             case 2:
                 // Quitter le jeu
@@ -100,6 +108,11 @@ public class Menu {
             default:
                 System.out.println("Choix invalide !");
         }
+        scanner.close();
+    }
+    public void afficherDeplacement(Game game, Personnage personnage, int position,int diceRoll) {
+        System.out.println("Vous avez lancé un dé et obtenu : " + diceRoll);
+        System.out.println("Vous êtes sur la case 2 : " + personnage.getPosition());
     }
 }
 
