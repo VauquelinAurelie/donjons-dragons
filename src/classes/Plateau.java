@@ -1,6 +1,5 @@
 package classes;
 import classes.equipements.EquipementOffensif;
-import classes.personnages.Ennemi;
 import classes.personnages.Personnage;
 import java.util.HashSet;
 import java.util.Random;

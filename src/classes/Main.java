@@ -1,15 +1,17 @@
 package classes;
 import classes.game.Game;
 import classes.game.Menu;
+import classes.personnages.Personnage;
+
+
 
 public class Main {
-    public static void main(String[] args) {
-        // créer une instance de la classe classes.game.Menu
+    public static void main(String[] args) throws PersonnageHorsPlateauException {
+        // création des instances des classes Menu et Game
         Menu menu = new Menu();
-        menu.afficherMenu();
-        // créer une instance de la classe classes.game.Game
         Game game = new Game();
-        // Création d'une instance de Plateau
-        Plateau plateau = new Plateau();
+
+        game.intialisePartie(menu);
+
     }
 }

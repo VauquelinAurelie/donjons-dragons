@@ -1,9 +1,10 @@
 package classes.personnages;
 
 public class Guerrier extends Personnage { // Classe Guerrier, héritant de Personnage
+
     // constructeur
-    public Guerrier(String nom, String type) {
-        super(nom, type);
+    public Guerrier(String nom) {
+        super(nom, "Guerrier",10,10,"Bouclier");
     }
 
     // Redéfinition de la méthode attaquer

@@ -3,12 +3,18 @@ package classes.personnages;
  public abstract class Personnage {
     protected String nom;
     protected String type;
+    protected int niveauVie;
+    protected int forceAttaque;
+    protected String defensif;
     protected int position;
 
      // constructeur de la class classes.personnages.Personnage  avec le nom et le type
-    public Personnage(String nom, String type) {
+    public Personnage(String nom, String type, int niveauVie, int forceAttaque, String defensif) {
         this.nom = nom;
         this.type = type;
+        this.niveauVie = niveauVie;
+        this.forceAttaque = forceAttaque;
+        this.defensif = defensif;
         this.position = 1;
     }
 

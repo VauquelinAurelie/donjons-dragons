@@ -1,4 +1,6 @@
 package classes.game;
+
+import classes.PersonnageHorsPlateauException;
 import classes.personnages.Guerrier;
 import classes.personnages.Magicien;
 import classes.personnages.Personnage;
@@ -8,10 +10,10 @@ import java.util.Scanner;
 public class Menu {
     private Personnage personnage;
 
-        public void afficherMenu() {
+    public void afficherMenu() throws PersonnageHorsPlateauException {
         Scanner scanner = new Scanner(System.in);
         int choix;
-
+        boolean joueurCreer = false;
         do {
             System.out.println("=== classes.game.Menu ===");
             System.out.println("1. Créer personnage");
@@ -23,16 +25,23 @@ public class Menu {
 
             switch (choix) {
                 case 1:
-                    personnage = creerPersonnage();
+                    personnage = creerJoueur();
+                    joueurCreer = true;
                     break;
                 case 2:
-                    modifierPersonnage(personnage);
+                    if (joueurCreer){
+                        modifierJoueur(personnage);
+                    } else {
+                        System.out.println("veuillez créer un joueur");
+                    }
                     break;
                 case 3:
                     Game game = new Game();
-                    demarrerPartie(personnage, game);
-
-//                     demarrerPartie(personnage, this);
+                    if (joueurCreer) {
+                        demarrerPartie(personnage, game);
+                    } else {
+                        System.out.println("veuillez créer un joueur");
+                    }
                     break;
                 case 4:
                     System.out.println("Au revoir !");
@@ -44,25 +53,27 @@ public class Menu {
 
         scanner.close();
     }
-    // Méthode pour créer un personnage
-    public Personnage creerPersonnage() {
+
+    // Méthode pour créer un joueur
+    public Personnage creerJoueur() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Votre nom : ");
         String nom = scanner.nextLine();
+
         System.out.print("Votre métier ( Guerrier ou Magicien ) : ");
-        String type = scanner.nextLine();
+        String type = scanner.nextLine().toUpperCase();
 
         if (type.equalsIgnoreCase("Guerrier")) {
-            return new Guerrier(nom, type);
+            return new Guerrier(nom);
         } else if (type.equalsIgnoreCase("Magicien")) {
-            return new Magicien(nom, type);
+            return new Magicien(nom);
         } else {
             System.out.println("Choix invalide !");
             return null;
         }
     }
 
-    public void modifierPersonnage(Personnage personnage) {
+    public void modifierJoueur(Personnage personnage) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nouveau nom : ");
         String nouveauNom = scanner.nextLine();
@@ -78,16 +89,15 @@ public class Menu {
         System.out.println("Métier : " + personnage.getType());
     }
 
-    public void demarrerPartie(Personnage personnage, Game game) {
+    public void demarrerPartie(Personnage personnage, Game game) throws PersonnageHorsPlateauException {
         personnage.setPosition(1); // Réinitialiser la position du personnage à 1
         System.out.println("Vous êtes sur la case : " + personnage.getPosition());
-
-        // créer une instance de la classe Game
-       // Game game = new Game();
-
         // Démarrer la boucle de jeu
-        game.demarrerPartie(personnage, this);
-
+        try {
+            game.jouer(personnage, this);
+        }catch (PersonnageHorsPlateauException e) {
+            System.out.println(e.getMessage());
+        }
         // Demander au joueur s'il souhaite quitter le jeu ou recommencer une partie
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voulez-vous :");
@@ -110,9 +120,17 @@ public class Menu {
         }
         scanner.close();
     }
-    public void afficherDeplacement(Game game, Personnage personnage, int position,int diceRoll) {
+
+    public void afficherDeplacement(Game game, Personnage personnage, int position, int diceRoll) {
         System.out.println("Vous avez lancé un dé et obtenu : " + diceRoll);
-        System.out.println("Vous êtes sur la case 2 : " + personnage.getPosition());
+        System.out.println("Vous êtes sur la case : " + personnage.getPosition());
+    }
+
+    public void afficherVictoire(Game game, Personnage personnage) {
+        System.out.println("Vous avez gagné !");
+    }
+    public void message (String message){
+        System.out.println(message);
     }
 }
 

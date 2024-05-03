@@ -2,8 +2,8 @@ package classes.equipements;
 
 public class Bouclier extends EquipementDefensif{ // Classe Bouclier, héritant de EquipementDefensif
     // construteur
-    public Bouclier(String type, int niveauDefense, String nom) {
-        super(type, niveauDefense, nom);
+    public Bouclier() {
+        super("Defensif", 3, "Bouclier");
     }
 
     // Redéfinition de la méthode toString

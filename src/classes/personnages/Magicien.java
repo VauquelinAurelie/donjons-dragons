@@ -2,8 +2,8 @@ package classes.personnages;
 
 public class Magicien extends Personnage { // Classe Magicien, héritant de Personnage
     // constructeur
-    public Magicien(String nom, String type) {
-        super(nom, type);
+    public Magicien(String nom) {
+        super(nom, "Magicien", 15, 6,"Philtre");
     }
     // Redéfinition de la méthode attaquer
     @Override

@@ -2,8 +2,8 @@ package classes.equipements;
 
 public class Philtre extends EquipementDefensif{ // Classe Philtre, héritant de EquipementDefensif
     // constructeur
-    public Philtre(String type, int niveauDefense, String nom) {
-        super(type, niveauDefense, nom);
+    public Philtre() {
+        super("Defensif", 5, "Philtre");
     }
 
     // Redéfinition de la méthode toString
