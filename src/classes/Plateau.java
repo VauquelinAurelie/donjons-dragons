@@ -1,59 +1,67 @@
 package classes;
-import classes.equipements.EquipementOffensif;
-import classes.personnages.Personnage;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import classes.equipements.Arme;
+import classes.personnages.Ennemi;
+import classes.equipements.Potion;
+import java.util.ArrayList;
 
 public class Plateau {
-    private int nombreCase = 64;
+    private ArrayList<Case> cases;
 
-  public void placerEnnemis(Personnage[] ennemis) { // position aléatoire de 5 ennemis
-//        int nombreEnnemis = 5;
-//        Random random = new Random();
-//        Set<Integer> positionsOccupees = new HashSet<>(); // stock les positions ennemis
-//        String[] typesEnnemis = {"Sorcier", "Gobelin", "Dragon"};
-//
-//        for (int i = 0; i < nombreEnnemis; i++) {
-//            // Choix aléatoire du type d'ennemi parmi les trois spécifiés
-//            String typeEnnemi = typesEnnemis[random.nextInt(typesEnnemis.length)];
-//
-//            // Génération aléatoire du nom de l'ennemi
-//            String nom = typeEnnemi + " " + (i + 1);
-//
-////            ennemis[i] = new Ennemi(); // Création de l'ennemi avec le nom et le type spécifiés
-//            int positionEnnemi;
-//            do {
-//                positionEnnemi = random.nextInt(nombreCase) + 1;
-//            } while (positionsOccupees.contains(positionEnnemi));
-//
-//            positionsOccupees.add(positionEnnemi); // Ajoute la position à l'ensemble des positions prises
-//            ennemis[i].setPosition(positionEnnemi); // Affecte la position à l'ennemi
-//            System.out.println("Ennemi " + (i + 1) + " positionné sur la case : " + positionEnnemi); // affichage pour tester à supprimer
-//        }
+    public Plateau(int nombreCase) {
+        cases = new ArrayList<>();
+        this.initialisationCase(nombreCase);
     }
 
-       public void placerSurprise(EquipementOffensif[] surprise) { // position aléatoire des caisses surprise
-//            int nombreSurprise = 5;
-//            Random random1 = new Random();
-//            Set<Integer> positionsOccupeesSurprise = new HashSet<>(); // stock les positions des box surprise
-//
-//            for (int i = 0; i < nombreSurprise; i++) {
-//                // Génération aléatoire des valeurs
-//                String type = "Type " + (i + 1);
-//                int niveauAttaque = random1.nextInt(20) + 1; // Valeur aléatoire entre 1 et 20
-//                String nom = "Nom " + (i + 1);
-//
-//                // Création de l'équipement offensif avec les valeurs aléatoires
-////                surprise[i] = new EquipementOffensif(type, niveauAttaque, nom);
-//                int positionSurprise;
-//                do {
-//                    positionSurprise = random1.nextInt(nombreCase) + 1;
-//                }while (positionsOccupeesSurprise.contains(positionSurprise));
-//                positionsOccupeesSurprise.add(positionSurprise);
-//                surprise[i].setPosition(positionSurprise);
-//                System.out.println("Surprise " + (i + 1) + " positionné sur la case : " + positionSurprise); // affichage pour tester à supprimer
-//            }
-      }
+    // méthode pour initialiser les cases avec leur contenu
+    private void initialisationCase(int nombreCase) {
+        cases.add(new CaseImpl(null));
+        cases.add(new CaseImpl(new Ennemi("Gobelin")));
+        cases.add(new CaseImpl(new Arme("Epée",10)));
+        cases.add(new CaseImpl(new Potion()));
+
+    }
+
+    public int getNombreCase() {
+        return cases.size();
+    }
+
+    public Object getContenuCase(int index) {
+        if (index >= 0 && index < cases.size()) {
+            return cases.get(index).getContenu();
+        } else {
+            System.out.println("Index de case invalide.");
+            return null;
+        }
+    }
+
+    // Implémentation interne de l'interface Case
+    private class CaseImpl implements Case {
+        private Object contenu;
+
+        public CaseImpl(Object contenu) {
+            this.contenu = contenu;
+        }
+
+        @Override
+        public Object getContenu() {
+            return contenu;
+        }
+
+        @Override
+        public void setContenu(Object contenu) {
+            this.contenu = contenu;
+        }
+        @Override
+        public void interaction() {
+            if (contenu != null) {
+                System.out.println("Interaction avec : " + contenu.toString());
+            } else {
+                System.out.println("Case vide, pas d'interaction.");
+            }
+        }
+    }
 }
+
+
+
 

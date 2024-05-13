@@ -1,9 +1,6 @@
 package classes;
 import classes.game.Game;
 import classes.game.Menu;
-import classes.personnages.Personnage;
-
-
 
 public class Main {
     public static void main(String[] args) throws PersonnageHorsPlateauException {
@@ -12,6 +9,5 @@ public class Main {
         Game game = new Game();
 
         game.intialisePartie(menu);
-
     }
 }

@@ -1,4 +1,18 @@
 package classes.personnages;
 
-public class Sorcier extends Ennemi { // classe dragon hérite de ennemi
+public class Sorcier extends Ennemi {
+    // Constructeur avec un argument
+    public Sorcier(String nom) {
+        super(nom); // Appel du constructeur parent avec un nom
+    }
+
+    // Constructeur sans argument
+    public Sorcier() {
+        super("Ennemi sorcier sans nom"); // Par défaut, appelle le constructeur parent avec un nom par défaut
+    }
+
+    @Override
+    public String toString() {
+        return "Sorcier : "; // + getNom();
+    }
 }
