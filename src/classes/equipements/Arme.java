@@ -1,8 +1,16 @@
 package classes.equipements;
 
-public class Arme extends EquipementOffensif{ // Classe Arme, héritant de EquipementOffensif
+import classes.ContenuCase;
+
+public class Arme extends EquipementOffensif implements ContenuCase { // Classe Arme, héritant de EquipementOffensif
     private int niveauAttaque;
     private String type = "arme";
+
+    // Implémentation de la méthode interaction
+    @Override
+    public void interaction() {
+        System.out.println("Interaction avec une arme !");
+    }
 
     // Constructeur prenant en compte le bonus d'attaque
     public Arme(String nom, int bonusAttaque) {

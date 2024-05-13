@@ -5,5 +5,5 @@ public interface Case {
     void setContenu(Object contenu);
 
     void interaction();
-    
+
 }

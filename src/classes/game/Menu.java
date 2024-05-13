@@ -1,11 +1,9 @@
 package classes.game;
-
 import classes.PersonnageHorsPlateauException;
 import classes.Plateau;
 import classes.personnages.Guerrier;
 import classes.personnages.Magicien;
 import classes.personnages.Personnage;
-
 import java.util.Scanner;
 
 public class Menu {
@@ -56,26 +54,6 @@ public class Menu {
 
         scanner.close();
     }
-
-    // Méthode pour créer un joueur
-//    public Personnage creerJoueur() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Votre nom : ");
-//        String nom = scanner.nextLine();
-//
-//        System.out.print("Votre métier ( Guerrier ou Magicien ) : ");
-//        String type = scanner.nextLine().toUpperCase();
-//
-//
-//        if (type.equalsIgnoreCase("Guerrier")) {
-//            return new Guerrier(nom);
-//        } else if (type.equalsIgnoreCase("Magicien")) {
-//            return new Magicien(nom);
-//        } else {
-//            System.out.println("Choix invalide !");
-//            return null;
-//        }
-//    }
 
     // Méthode pour créer un joueur
     public Personnage creerJoueur() {

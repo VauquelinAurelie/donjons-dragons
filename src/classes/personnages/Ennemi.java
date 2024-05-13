@@ -1,13 +1,15 @@
 package classes.personnages;
 
-public class Ennemi {
+import classes.ContenuCase;
+
+public class Ennemi implements ContenuCase {
     private String nom;
 
     public Ennemi(String nom) {
         this.nom = nom;
     }
- void interaction() {
-
+public void interaction() {
+    System.out.println("Interaction avec un ennemi !");
 }
 
     @Override

@@ -1,11 +1,12 @@
 package classes.game;
-
 import classes.Dice.OneFaceDice;
 import classes.Dice.SixFaceDice;
 import classes.PersonnageHorsPlateauException;
 import classes.Plateau;
 import classes.personnages.Personnage;
 import classes.Dice.Dice;
+import classes.Case;
+import classes.ContenuCase;
 
 
 public class Game {
@@ -19,17 +20,17 @@ public class Game {
         this.dice = dice;
     }
 
-
     public void intialisePartie(Menu menu) throws PersonnageHorsPlateauException {
-
         // Afficher le menu
         menu.afficherMenu();
     }
 
     public void jouer(Plateau plateau, Personnage personnage, Menu menu) throws PersonnageHorsPlateauException {
         int nombreCase = plateau.getNombreCase();
-//        choisirDe(new SixFaceDice());
+
+        // choix du dé
         choisirDe(new OneFaceDice());
+//        choisirDe(new SixFaceDice());
 
         // Boucle pour déplacer le personnage jusqu'à la dernière case du plateau
         while (true) {
@@ -37,6 +38,16 @@ public class Game {
             int positionFinale = deplacement(personnage, diceRoll);
             // Afficher le déplacement
             menu.afficherDeplacement(this, personnage, positionFinale, diceRoll);
+
+            // Obtenir le contenu de la case actuelle
+            ContenuCase contenuCase = plateau.getContenuCase(personnage.getPosition() - 1);
+            // Si le contenu de la case n'est pas nul, interagir avec la case
+            if (contenuCase != null) {
+                System.out.print("La case contient : ");
+                // Appeler la méthode interaction de la case
+                contenuCase.interaction();
+            }
+
             // Vérifier la condition de victoire
             if (personnage.getPosition() == nombreCase) {
                 menu.afficherVictoire(this, personnage);  // le joueur a gagné !
@@ -47,8 +58,6 @@ public class Game {
             if (personnage.getPosition() > nombreCase) {
                 throw new PersonnageHorsPlateauException();
             }
-
-
         }
     }
 
@@ -58,5 +67,4 @@ public class Game {
         personnage.setPosition(currentPosition);
         return currentPosition;
     }
-
 }
