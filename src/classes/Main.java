@@ -1,6 +1,7 @@
 package classes;
 import classes.game.Game;
 import classes.game.Menu;
+import classes.plateau.PersonnageHorsPlateauException;
 
 public class Main {
     public static void main(String[] args) throws PersonnageHorsPlateauException {

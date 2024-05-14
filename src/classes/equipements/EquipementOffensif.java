@@ -2,6 +2,7 @@ package classes.equipements;
 
  public abstract class EquipementOffensif { // Equipement offensif "arme" ou "sort"
     protected String type;
+    protected int niveauVie;
     protected int niveauAttaque;
     protected String nom;
     protected int position;
@@ -9,6 +10,7 @@ package classes.equipements;
     // constructeur
     public EquipementOffensif(String type, int niveauAttaque, String nom) {
         this.type = type;
+        this.niveauVie = niveauVie;
         this.niveauAttaque = niveauAttaque;
         this.nom = nom;
     }
@@ -18,6 +20,9 @@ package classes.equipements;
      public abstract String toString();
 
     // getters et setters
+     public int getNiveauVie(){
+         return getNiveauVie();
+     }
     public int getPosition() {
         return position;
     }

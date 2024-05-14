@@ -1,12 +1,10 @@
 package classes.game;
 import classes.Dice.OneFaceDice;
-import classes.Dice.SixFaceDice;
-import classes.PersonnageHorsPlateauException;
-import classes.Plateau;
+import classes.plateau.PersonnageHorsPlateauException;
+import classes.plateau.Plateau;
 import classes.personnages.Personnage;
 import classes.Dice.Dice;
-import classes.Case;
-import classes.ContenuCase;
+import classes.plateau.ContenuCase;
 
 
 public class Game {
@@ -45,7 +43,7 @@ public class Game {
             if (contenuCase != null) {
                 System.out.print("La case contient : ");
                 // Appeler la méthode interaction de la case
-                contenuCase.interaction();
+                contenuCase.interaction(personnage);
             }
 
             // Vérifier la condition de victoire

@@ -1,6 +1,6 @@
 package classes.game;
-import classes.PersonnageHorsPlateauException;
-import classes.Plateau;
+import classes.plateau.PersonnageHorsPlateauException;
+import classes.plateau.Plateau;
 import classes.personnages.Guerrier;
 import classes.personnages.Magicien;
 import classes.personnages.Personnage;

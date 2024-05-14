@@ -1,4 +1,4 @@
-package classes;
+package classes.plateau;
 
 public class PersonnageHorsPlateauException extends Exception {
     public PersonnageHorsPlateauException() {

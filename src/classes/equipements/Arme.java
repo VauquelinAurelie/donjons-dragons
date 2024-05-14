@@ -1,6 +1,7 @@
 package classes.equipements;
 
-import classes.ContenuCase;
+import classes.personnages.Personnage;
+import classes.plateau.ContenuCase;
 
 public class Arme extends EquipementOffensif implements ContenuCase { // Classe Arme, héritant de EquipementOffensif
     private int niveauAttaque;
@@ -8,7 +9,7 @@ public class Arme extends EquipementOffensif implements ContenuCase { // Classe 
 
     // Implémentation de la méthode interaction
     @Override
-    public void interaction() {
+    public void interaction(Personnage personnage) {
         System.out.println("Interaction avec une arme !");
     }
 
