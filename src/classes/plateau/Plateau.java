@@ -19,9 +19,9 @@ public class Plateau {
         cases[1] = new Arme ("Massue",3);
         cases[2] = new Ennemi("Gobelin", 1, 6);
         cases[3] = new Sort (2,"Eclair");
-//        cases[4] = new Arme ("Massue",3);
-//        cases[5] = new Ennemi("Gobelin", 1, 6);
-//        cases[6] = new Potion (2,"Potion Standard");
+        cases[4] = new Arme ("Massue",3);
+        cases[5] = new Ennemi("Gobelin", 1, 6);
+        cases[6] = new Potion ("Potion Standard", 2);
 //        cases[7] = new Sort (2,"Eclair");
 //        cases[8] = new Ennemi("Gobelin", 1, 6);
 //        cases[9] = new Ennemi("Sorcier",2,9);
@@ -89,6 +89,21 @@ public class Plateau {
         } else {
             System.out.println("Index de case invalide.");
             return null;
+        }
+    }
+
+    // Méthode pour gérer l'interaction en fonction de la classe de l'objet
+    public void gererInteraction(ContenuCase contenu) {
+        if (contenu instanceof Arme) {
+            System.out.println("Interaction avec une arme !");
+        } else if (contenu instanceof Potion) {
+            System.out.println("Interaction avec une potion !");
+        } else if (contenu instanceof Sort) {
+            System.out.println("Interaction avec un sort !");
+        } else if (contenu instanceof Ennemi) {
+            System.out.println("Interaction avec un ennemi !");
+        } else {
+            System.out.println("Interaction avec un objet inconnu.");
         }
     }
 }

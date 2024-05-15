@@ -45,7 +45,8 @@ public class Game {
                 // Appeler la méthode interaction de la case
                 contenuCase.interaction(personnage);
             }
-
+            System.out.println("niveau de vie  : " + personnage.getNiveauVie());
+            System.out.println("force d'attaque  : " + personnage.getNiveauAttaque());
             // Vérifier la condition de victoire
             if (personnage.getPosition() == nombreCase) {
                 menu.afficherVictoire(this, personnage);  // le joueur a gagné !

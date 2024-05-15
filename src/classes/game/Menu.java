@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
     private Personnage personnage;
-    public int nombreCase = 4;
+    public int nombreCase = 7;
 
     public void afficherMenu() throws PersonnageHorsPlateauException {
         Scanner scanner = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Menu {
         Personnage personnage = null;
 
         if (type.equalsIgnoreCase("Guerrier")) {
-            personnage = new Guerrier(nom);
+            personnage = new Guerrier(nom,"Pas d'arme");
         } else if (type.equalsIgnoreCase("Magicien")) {
             personnage = new Magicien(nom);
         } else {

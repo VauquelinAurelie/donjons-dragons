@@ -1,6 +1,6 @@
 package classes.equipements;
 
- public abstract class EquipementOffensif { // Equipement offensif "arme" ou "sort"
+public abstract class EquipementOffensif { // Equipement offensif "arme", "sort" ou "potion"
     protected String type;
     protected int niveauVie;
     protected int niveauAttaque;
@@ -8,21 +8,28 @@ package classes.equipements;
     protected int position;
 
     // constructeur
-    public EquipementOffensif(String type, int niveauAttaque, String nom) {
+    public EquipementOffensif(String nom, int niveauAttaque, int niveauVie, String type) {
         this.type = type;
         this.niveauVie = niveauVie;
         this.niveauAttaque = niveauAttaque;
         this.nom = nom;
     }
 
-     // Redéfinition de la méthode toString
-     @Override
-     public abstract String toString();
+    public abstract int getNiveauAttaque();
+
+    // Redéfinition de la méthode toString
+    @Override
+    public abstract String toString();
 
     // getters et setters
-     public int getNiveauVie(){
-         return getNiveauVie();
-     }
+    public String getNom() {
+        return nom;
+    }
+
+    public int getNiveauVie() {
+        return niveauVie;
+    }
+
     public int getPosition() {
         return position;
     }
