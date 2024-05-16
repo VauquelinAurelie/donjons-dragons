@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
     private Personnage personnage;
-    public int nombreCase = 7;
+    public int nombreCase = 10;
 
     public void afficherMenu() throws PersonnageHorsPlateauException {
         Scanner scanner = new Scanner(System.in);
@@ -84,7 +84,6 @@ public class Menu {
         return personnage;
     }
 
-
     public void modifierJoueur(Personnage personnage) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nouveau nom : ");
@@ -135,7 +134,6 @@ public class Menu {
         scanner.close();
     }
 
-
     public void afficherDeplacement(Game game, Personnage personnage, int position, int diceRoll) {
         System.out.println("Vous avez lancé un dé et obtenu : " + diceRoll);
         System.out.println("Vous êtes sur la case : " + personnage.getPosition());
@@ -143,6 +141,10 @@ public class Menu {
 
     public void afficherVictoire(Game game, Personnage personnage) {
         System.out.println("Vous avez gagné !");
+    }
+
+    public void afficherDefaite(Game game, Personnage personnage) {
+        System.out.println("Vous avez perdu !");
     }
 
     public void message(String message) {

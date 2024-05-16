@@ -11,9 +11,7 @@ public class Guerrier extends Personnage { // Classe Guerrier, héritant de Pers
 
     // Redéfinition de la méthode attaquer
     @Override
-    public void attaquer() {
-        System.out.println("Le guerrier " + nom + " attaque avec " + offensif + " !");
-    }
+    public void attaquer(Ennemi ennemi) { }
 
     @Override
     public String toString() {
@@ -24,9 +22,4 @@ public class Guerrier extends Personnage { // Classe Guerrier, héritant de Pers
         return offensif;
     }
 
-    public void setOffensif(Arme arme) {
-        this.offensif = arme;
-        this.forceAttaqueActuelle += arme.getNiveauAttaque();
-        this.niveauVieActuel += arme.getNiveauVie();
-    }
 }

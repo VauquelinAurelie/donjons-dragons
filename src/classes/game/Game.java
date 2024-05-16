@@ -19,8 +19,7 @@ public class Game {
     }
 
     public void intialisePartie(Menu menu) throws PersonnageHorsPlateauException {
-        // Afficher le menu
-        menu.afficherMenu();
+        menu.afficherMenu();  // Afficher le menu
     }
 
     public void jouer(Plateau plateau, Personnage personnage, Menu menu) throws PersonnageHorsPlateauException {
@@ -39,6 +38,7 @@ public class Game {
 
             // Obtenir le contenu de la case actuelle
             ContenuCase contenuCase = plateau.getContenuCase(personnage.getPosition() - 1);
+
             // Si le contenu de la case n'est pas nul, interagir avec la case
             if (contenuCase != null) {
                 System.out.print("La case contient : ");
@@ -62,7 +62,7 @@ public class Game {
 
     public int deplacement(Personnage personnage, int diceRoll) {
         int currentPosition = personnage.getPosition();
-        currentPosition += diceRoll ;
+        currentPosition += diceRoll;
         personnage.setPosition(currentPosition);
         return currentPosition;
     }

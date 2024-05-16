@@ -15,8 +15,7 @@ public class Sort extends EquipementOffensif implements ContenuCase { // Classe 
     // Implémentation de la méthode interaction
     @Override
     public void interaction(Personnage personnage) {
-        if (personnage instanceof Magicien) {  // Vérifie si le personnage est un magicien
-            Magicien magicien = (Magicien) personnage; // Cast le personnage en magicien
+        if (personnage instanceof Magicien magicien) {  // Vérifie si le personnage est un magicien
             Sort offensif = magicien.getOffensif();  // Obtient le sort actuellement équipée par le magicien
             if (offensif == null || offensif.getNiveauAttaque() < niveauAttaque) {  // Vérifie si le sort actuelle est moins puissante
                 magicien.setOffensif(this);
@@ -43,6 +42,5 @@ public class Sort extends EquipementOffensif implements ContenuCase { // Classe 
     @Override
     public String toString() {
         return "Sort : " + nom + ", Niveau d'attaque : " + niveauAttaque;
-
     }
 }

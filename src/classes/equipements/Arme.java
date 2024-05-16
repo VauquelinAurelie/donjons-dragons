@@ -5,7 +5,6 @@ import classes.plateau.ContenuCase;
 
 public class Arme extends EquipementOffensif implements ContenuCase { // Classe Arme, héritant de EquipementOffensif
     private int niveauAttaque;
-//    protected EquipementOffensif offensif;
 
     // Constructeur prenant en compte le bonus d'attaque
     public Arme(String nom, int niveauAttaque) {
@@ -16,8 +15,7 @@ public class Arme extends EquipementOffensif implements ContenuCase { // Classe 
     // Implémentation de la méthode interaction
     @Override
     public void interaction(Personnage personnage) {
-        if (personnage instanceof Guerrier) {  // Vérifie si le personnage est un Guerrier
-            Guerrier guerrier = (Guerrier) personnage; // Cast le personnage en Guerrier
+        if (personnage instanceof Guerrier guerrier) {  // Vérifie si le personnage est un Guerrier
             Arme offensif = guerrier.getOffensif();  // Obtient l'arme actuellement équipée par le Guerrier
             if (offensif == null || offensif.getNiveauAttaque() < niveauAttaque) {  // Vérifie si l'arme actuelle est moins puissante
                 guerrier.setOffensif(this);

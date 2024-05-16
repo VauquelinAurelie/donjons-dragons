@@ -1,5 +1,4 @@
 package classes.personnages;
-import classes.equipements.Arme;
 import classes.equipements.Sort;
 
 public class Magicien extends Personnage { // Classe Magicien, héritant de Personnage
@@ -12,8 +11,8 @@ public class Magicien extends Personnage { // Classe Magicien, héritant de Pers
 
     // Redéfinition de la méthode attaquer
     @Override
-    public void attaquer() {
-        System.out.println("Le magicien " + nom + " lance un sort avec " + offensif + "!");
+    public void attaquer(Ennemi ennemi) {
+        System.out.println("Le magicien " + nom + " attaque avec " + offensif + "!");
     }
 
     @Override
@@ -25,9 +24,4 @@ public class Magicien extends Personnage { // Classe Magicien, héritant de Pers
         return offensif;
     }
 
-    public void setOffensif(Sort sort) {
-        this.offensif = sort;
-        this.forceAttaqueActuelle += sort.getNiveauAttaque();
-        this.niveauVieActuel += sort.getNiveauVie();
-    }
 }
