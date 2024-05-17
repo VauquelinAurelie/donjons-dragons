@@ -15,18 +15,30 @@ public class Sort extends EquipementOffensif implements ContenuCase { // Classe 
     // Implémentation de la méthode interaction
     @Override
     public void interaction(Personnage personnage) {
-        if (personnage instanceof Magicien magicien) {  // Vérifie si le personnage est un magicien
-            Sort offensif = magicien.getOffensif();  // Obtient le sort actuellement équipée par le magicien
-            if (offensif == null || offensif.getNiveauAttaque() < niveauAttaque) {  // Vérifie si le sort actuelle est moins puissante
-                magicien.setOffensif(this);
+        if (personnage instanceof Magicien magicien) {
+            Sort sortActuel = magicien.getSort(); // Utiliser getSort() au lieu de getOffensif()
+            if (sortActuel == null || sortActuel.getNiveauAttaque() < niveauAttaque) {
+                magicien.setSort(this); // Utiliser setSort() au lieu de setOffensif()
                 System.out.println(magicien.getNom() + " a pris le sort " + getNom());
-                System.out.println(personnage.getNom() + "ta force d'attaque augmente de  " + getNiveauAttaque());
+                System.out.println(magicien.getNom() + " ta force d'attaque augmente de " + getNiveauAttaque());
             } else {
-                System.out.println(magicien.getNom() + " possède déjà le sort plus puissante.");
+                System.out.println(magicien.getNom() + " possède déjà un sort plus puissant.");
             }
         } else {
             System.out.println(personnage.getNom() + " n'est pas un magicien et ne peut pas prendre le sort.");
         }
+//        if (personnage instanceof Magicien magicien) {  // Vérifie si le personnage est un magicien
+//            Sort offensif = magicien.getOffensif();  // Obtient le sort actuellement équipée par le magicien
+//            if (offensif == null || offensif.getNiveauAttaque() < niveauAttaque) {  // Vérifie si le sort actuelle est moins puissante
+//                magicien.setOffensif(this);
+//                System.out.println(magicien.getNom() + " a pris le sort " + getNom());
+//                System.out.println(personnage.getNom() + "ta force d'attaque augmente de  " + getNiveauAttaque());
+//            } else {
+//                System.out.println(magicien.getNom() + " possède déjà le sort plus puissante.");
+//            }
+//        } else {
+//            System.out.println(personnage.getNom() + " n'est pas un magicien et ne peut pas prendre le sort.");
+//        }
     }
 
     public String getNom() {
@@ -43,4 +55,5 @@ public class Sort extends EquipementOffensif implements ContenuCase { // Classe 
     public String toString() {
         return "Sort : " + nom + ", Niveau d'attaque : " + niveauAttaque;
     }
+
 }

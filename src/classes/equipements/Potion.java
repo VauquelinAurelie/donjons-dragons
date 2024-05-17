@@ -15,18 +15,28 @@ public class Potion extends EquipementOffensif implements ContenuCase {
     // Implémentation de la méthode interaction
     @Override
     public void interaction(Personnage personnage) {
-        if (personnage instanceof Personnage) {
-            EquipementOffensif offensifActuel = personnage.getOffensif();  // Obtient le sort actuellement équipée par le magicien
-            if (offensifActuel == null || offensifActuel.getNiveauVie() < niveauVie) {  // Vérifie si le sort actuelle est moins puissante
-               personnage.setOffensif(this); // Equipe la potion
-                personnage.setNiveauVie(personnage.getNiveauVie() + niveauVie); // Augmente le niveau de vie du personnage
+        if (personnage != null) {
+            Potion potionActuelle = personnage.getPotion(); // Utiliser getPotion() au lieu de getOffensif()
+            if (potionActuelle == null || potionActuelle.getNiveauVie() < niveauVie) {
+                personnage.setPotion(this); // Utiliser setPotion() au lieu de setOffensif()
+                personnage.setNiveauVie(personnage.getNiveauVie() + niveauVie);
                 System.out.println(personnage.getNom() + " a pris la potion " + getNom());
-                System.out.println(personnage.getNom() + "ton niveau de vie augmente de  " + getNiveauVie());
+                System.out.println(personnage.getNom() + " ton niveau de vie augmente de " + getNiveauVie());
             } else {
                 System.out.println(personnage.getNom() + " possède déjà une potion plus puissante.");
             }
         }
-    }
+//            EquipementOffensif offensifActuel = personnage.getOffensif();  // Obtient le sort actuellement équipée par le magicien
+//            if (offensifActuel == null || offensifActuel.getNiveauVie() < niveauVie) {  // Vérifie si le sort actuelle est moins puissante
+//               personnage.setOffensif(this); // Equipe la potion
+//                personnage.setNiveauVie(personnage.getNiveauVie() + niveauVie); // Augmente le niveau de vie du personnage
+//                System.out.println(personnage.getNom() + " a pris la potion " + getNom());
+//                System.out.println(personnage.getNom() + "ton niveau de vie augmente de  " + getNiveauVie());
+//            } else {
+//                System.out.println(personnage.getNom() + " possède déjà une potion plus puissante.");
+//            }
+        }
+
 
     // Redéfinition de la méthode toString
     @Override

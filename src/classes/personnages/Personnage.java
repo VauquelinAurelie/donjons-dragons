@@ -13,6 +13,9 @@ public abstract class Personnage {
     protected int forceAttaqueActuelle;
     protected String defensif;
     private EquipementOffensif offensif;
+    private Potion potion;
+    private Arme arme;
+    private Sort sort;
     protected int position;
 
     // constructeur de la class classes.personnages.Personnage
@@ -40,13 +43,13 @@ public abstract class Personnage {
     }
 
     public void equiperPotion(Potion potion) {
-        // Vérifie si le personnage a déjà une potion équipée
+        // Vérifie si le personnage a déjà équipé d'une potion
         if (this.offensif instanceof Potion) {
-            System.out.println("Le personnage " + this.nom + " possède déjà une potion équipée.");
+            System.out.println("Le personnage " + this.nom + " possède déjà équipé d'une potion.");
         } else {
             // Équipe la nouvelle potion
             this.offensif = potion;
-            System.out.println("Le personnage " + this.nom + " a équipé la potion : " + potion.getNom());
+            System.out.println("Le personnage " + this.nom + " s'est équipé de la potion : " + potion.getNom());
         }
     }
 
@@ -104,6 +107,28 @@ public abstract class Personnage {
 
     public int getForceAttaqueActuelle() { return forceAttaqueActuelle; }
     public void setForceAttaqueActuelle(int forceAttaqueActuelle) { this.forceAttaqueActuelle = forceAttaqueActuelle; }
+
+
+    public Potion getPotion() {
+        return potion;
+    }     // Méthode pour obtenir la potion actuelle
+    public void setPotion(Potion potion) {
+        this.potion = potion;
+    }     // Méthode pour équiper une nouvelle potion
+
+    public Arme getArme() {
+        return arme;
+    }     // Méthode pour obtenir la potion actuelle
+    public void setArme(Arme arme) {
+        this.arme = arme;
+    }     // Méthode pour équiper une nouvelle potion
+
+    public Sort getSort() {
+        return sort;
+    }     // Méthode pour obtenir la potion actuelle
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }     // Méthode pour équiper une nouvelle potion
 
     public String getType() {
         return type;
