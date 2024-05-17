@@ -16,11 +16,13 @@ public class Arme extends EquipementOffensif implements ContenuCase { // Classe 
     @Override
     public void interaction(Personnage personnage) {
         if (personnage instanceof Guerrier guerrier) {  // Vérifie si le personnage est un Guerrier
-            Arme armeAcutelle = guerrier.getArme();  // Obtient l'arme actuellement équipée par le Guerrier
-            if (armeAcutelle == null || armeAcutelle.getNiveauAttaque() < niveauAttaque) {  // Vérifie si l'arme actuelle est moins puissante
-                guerrier.setArme(this);
+            Arme armeActuelle = guerrier.getArme();  // Obtient l'arme actuellement équipée par le Guerrier
+            if (armeActuelle == null || armeActuelle.getNiveauAttaque() < niveauAttaque) {  // Vérifie si l'arme actuelle est moins puissante
                 System.out.println(guerrier.getNom() + " a pris l'arme " + getNom());
-                System.out.println(personnage.getNom() + "ta force d'attaque augmente de  " + getNiveauAttaque());
+                System.out.println(guerrier.getNom() + "ta force d'attaque augmente de  " + getNiveauAttaque());
+
+                guerrier.setArme(this);
+                guerrier.setForceAttaqueActuelle(guerrier.getForceAttaqueActuelle() + guerrier.getArme().getNiveauAttaque());
             } else {
                 System.out.println(guerrier.getNom() + " possède déjà une arme plus puissante.");
             }

@@ -12,11 +12,11 @@ public class Plateau {
 
     public Plateau(int nombreCase) {
         cases = new ContenuCase[nombreCase];
-        this.initialisationCase(nombreCase);
+        this.initialisationCase();
     }
 
     // méthode pour initialiser les cases avec leur contenu
-    private void initialisationCase(int nombreCase) {
+    private void initialisationCase() {
         List<ContenuCase> contenus = new ArrayList<>();
 
         // Ajouter les ennemis

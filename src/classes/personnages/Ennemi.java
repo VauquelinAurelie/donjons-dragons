@@ -12,6 +12,7 @@ public class Ennemi implements ContenuCase {
     public Ennemi(String nom, int forceAttaque, int niveauVie) {
         this.nom = nom;
         this.niveauVie = niveauVie;
+//        this.niveauVieActuel = niveauVie; // Initialise le niveau de vie actuel avec le niveau de vie initial
         this.forceAttaque = forceAttaque;
         this.forceAttaqueActuelle = forceAttaque;
     }
@@ -53,12 +54,10 @@ public class Ennemi implements ContenuCase {
     public String toString() { return "Ennemi : " + nom; }
 
     public int getNiveauVie() { return niveauVie; }
-
     public void setNiveauVie(int niveauVie) { this.niveauVie = niveauVie; }
 
     public int getNiveauAttaque() { return forceAttaqueActuelle; }
 
     public String getNom() { return nom; }
-
     public void setNom(String nom) { this.nom = nom; }
 }
