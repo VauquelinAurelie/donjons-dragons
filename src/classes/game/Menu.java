@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
     private Personnage personnage;
-    public int nombreCase = 10;
+    public int nombreCase = 64;
 
     public void afficherMenu() throws PersonnageHorsPlateauException {
         Scanner scanner = new Scanner(System.in);
