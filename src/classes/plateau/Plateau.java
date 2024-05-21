@@ -21,13 +21,13 @@ public class Plateau {
 
         // Ajouter les ennemis
         for (int i = 0; i < 4; i++) {
-            contenus.add(new Ennemi("Dragon", 4, 15));
+            contenus.add(new Ennemi("Dragon", 4, 25));
         }
         for (int i = 0; i < 10; i++) {
-            contenus.add(new Ennemi("Sorcier", 2, 9));
+            contenus.add(new Ennemi("Sorcier", 2, 25));
         }
         for (int i = 0; i < 10; i++) {
-            contenus.add(new Ennemi("Gobelin", 1, 6));
+            contenus.add(new Ennemi("Gobelin", 1, 25));
         }
 
         // Ajouter les caisses surprises

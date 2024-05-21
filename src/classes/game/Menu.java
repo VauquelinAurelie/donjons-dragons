@@ -139,11 +139,10 @@ public class Menu {
         System.out.println("Vous êtes sur la case : " + personnage.getPosition());
     }
 
-    public void afficherVictoire(Game game, Personnage personnage) {
+    public void afficherVictoire() {
         System.out.println("Vous avez gagné !");
     }
-
-    public void afficherDefaite(Game game, Personnage personnage) {
+    public void afficherDefaite() {
         System.out.println("Vous avez perdu !");
     }
 

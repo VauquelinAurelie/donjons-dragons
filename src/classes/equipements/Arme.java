@@ -1,4 +1,6 @@
 package classes.equipements;
+import classes.game.Game;
+import classes.game.Menu;
 import classes.personnages.Guerrier;
 import classes.personnages.Personnage;
 import classes.plateau.ContenuCase;
@@ -14,7 +16,7 @@ public class Arme extends EquipementOffensif implements ContenuCase { // Classe 
 
     // Implémentation de la méthode interaction
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage personnage, Menu menu, Game game) {
         if (personnage instanceof Guerrier guerrier) {  // Vérifie si le personnage est un Guerrier
             Arme armeActuelle = guerrier.getArme();  // Obtient l'arme actuellement équipée par le Guerrier
             if (armeActuelle == null || armeActuelle.getNiveauAttaque() < niveauAttaque) {  // Vérifie si l'arme actuelle est moins puissante

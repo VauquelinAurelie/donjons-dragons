@@ -1,7 +1,9 @@
 package classes.equipements;
+import classes.game.Game;
 import classes.personnages.Magicien;
 import classes.personnages.Personnage;
 import classes.plateau.ContenuCase;
+import classes.game.Menu;
 
 public class Sort extends EquipementOffensif implements ContenuCase { // Classe Sort, héritant de EquipementOffensif
     private int niveauAttaque;
@@ -14,16 +16,16 @@ public class Sort extends EquipementOffensif implements ContenuCase { // Classe 
 
     // Implémentation de la méthode interaction
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage personnage, Menu menu, Game game) {
         if (personnage instanceof Magicien magicien) {
-            Sort sortActuel = magicien.getSort(); // Utiliser getSort() au lieu de getOffensif()
+            Sort sortActuel = magicien.getSort();
             if (sortActuel == null || sortActuel.getNiveauAttaque() < niveauAttaque) {
-                magicien.setSort(this); // Utiliser setSort() au lieu de setOffensif()
+                magicien.setSort(this);
                 System.out.println(magicien.getNom() + " a pris le sort " + getNom());
                 System.out.println(magicien.getNom() + " ta force d'attaque augmente de " + getNiveauAttaque());
 
                 magicien.setSort(this);
-                magicien.setForceAttaqueActuelle(magicien.getForceAttaqueActuelle() + magicien.getArme().getNiveauAttaque());
+                magicien.setForceAttaqueActuelle(magicien.getForceAttaqueActuelle() + magicien.getSort().getNiveauAttaque());
             } else {
                 System.out.println(magicien.getNom() + " possède déjà un sort plus puissant.");
             }

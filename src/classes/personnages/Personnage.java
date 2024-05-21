@@ -42,17 +42,6 @@ public abstract class Personnage {
                 '}';
     }
 
-//    public void equiperPotion(Potion potion) {
-//        // Vérifie si le personnage a déjà équipé d'une potion
-//        if (this.offensif instanceof Potion) {
-//            System.out.println("Le personnage " + this.nom + " possède déjà équipé d'une potion.");
-//        } else {
-//            // Équipe la nouvelle potion
-//            this.offensif = potion;
-//            System.out.println("Le personnage " + this.nom + " s'est équipé de la potion : " + potion.getNom());
-//        }
-//    }
-
     // Méthode pour obtenir la position du personnage
     public int getPosition() {
         return position;
@@ -65,28 +54,25 @@ public abstract class Personnage {
         return offensif;
     }
 
-    public void setOffensif(EquipementOffensif offensif) {
-        this.offensif = offensif;
-        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est un sort
-        if (offensif instanceof Sort sort) {
-            this.forceAttaqueActuelle += ((Sort) offensif).getNiveauAttaque();
-            this.offensif = sort;
-            this.niveauVieActuel += sort.getNiveauVie();
-            System.out.println("test sort");
-        }
-        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est une arme
-        if (offensif instanceof Arme arme) {
-            this.forceAttaqueActuelle += ((Arme) offensif).getNiveauAttaque();
-            this.offensif = arme;
-            this.niveauVieActuel += arme.getNiveauVie();
-            System.out.println("test arme");
-        }
-        // Mise à jour du niveau de vie actuel si l'équipement offensif est une potion
-        if (offensif instanceof Potion ) {
-            this.niveauVieActuel += ((Potion) offensif).getNiveauVie();
-            System.out.println("test potion");
-        }
-    }
+//    public void setOffensif(EquipementOffensif offensif) {
+//        this.offensif = offensif;
+//        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est un sort
+//        if (offensif instanceof Sort sort) {
+//            this.forceAttaqueActuelle += ((Sort) offensif).getNiveauAttaque();
+//            this.offensif = sort;
+//            this.niveauVieActuel += sort.getNiveauVie();
+//        }
+//        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est une arme
+//        if (offensif instanceof Arme arme) {
+//            this.forceAttaqueActuelle += ((Arme) offensif).getNiveauAttaque();
+//            this.offensif = arme;
+//            this.niveauVieActuel += arme.getNiveauVie();
+//        }
+//        // Mise à jour du niveau de vie actuel si l'équipement offensif est une potion
+//        if (offensif instanceof Potion ) {
+//            this.niveauVieActuel += ((Potion) offensif).getNiveauVie();
+//        }
+//    }
 
     public int getNiveauVie() {
         return niveauVie;
@@ -140,5 +126,8 @@ public abstract class Personnage {
     }
     public void setNom(String nom) {
         this.nom = nom;
+    }
+    public void subirDegats(int degats) {
+        this.niveauVie -= degats;
     }
 }

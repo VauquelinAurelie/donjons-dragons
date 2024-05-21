@@ -1,4 +1,6 @@
 package classes.personnages;
+import classes.game.Game;
+import classes.game.Menu;
 import classes.plateau.ContenuCase;
 
 public class Ennemi implements ContenuCase {
@@ -17,7 +19,7 @@ public class Ennemi implements ContenuCase {
         this.forceAttaqueActuelle = forceAttaque;
     }
 
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage personnage, Menu menu, Game game) {
         System.out.println("Combat avec l'ennemi " + getNom() + " !");
 
         // Le personnage attaque l'ennemi
@@ -33,15 +35,17 @@ public class Ennemi implements ContenuCase {
         } else {
             // L'ennemi contre-attaque
             int degatsEnnemi = getNiveauAttaque(); // Utilisation de la force d'attaque du personnage
-            this.subirDegats(degatsEnnemi); // Le personnage subit les dégâts de l'ennemi
+            personnage.subirDegats(degatsEnnemi); // Le personnage subit les dégâts de l'ennemi
 
             // Afficher le niveau de vie du personnage après la contre-attaque de l'ennemi
-            System.out.println("Le personnage " + this.nom + " a subi " + degatsEnnemi + " points de dégâts.");
-            System.out.println("Nouveau niveau de vie du personnage : " + personnage.getNiveauVieActuel());
+            System.out.println("L'ennemi " + this.nom + " a subi " + degatsInfliges + " points de dégâts.");
+            System.out.println("Nouveau niveau de vie du personnage : " + personnage.getNiveauVie());
 
             // Vérifie si le personnage est vaincu
-            if (this.getNiveauVie() <= 0) {
+            if (personnage.getNiveauVie() <= 0) {
                 System.out.println("Le personnage est vaincu !");
+                menu.afficherDefaite();
+                game.terminerPartie();
             }
         }
     }

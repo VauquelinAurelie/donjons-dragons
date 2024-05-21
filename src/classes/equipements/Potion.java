@@ -1,7 +1,8 @@
 package classes.equipements;
-
+import classes.game.Game;
 import classes.personnages.Personnage;
 import classes.plateau.ContenuCase;
+import classes.game.Menu;
 
 public class Potion extends EquipementOffensif implements ContenuCase {
     private int niveauVie;
@@ -15,7 +16,7 @@ public class Potion extends EquipementOffensif implements ContenuCase {
 
     // Implémentation de la méthode interaction
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage personnage, Menu menu, Game game) {
         if (personnage != null) {
             Potion potionActuelle = personnage.getPotion(); // Utiliser getPotion() au lieu de getOffensif()
             if (potionActuelle == null || potionActuelle.getNiveauVie() < niveauVie) {
@@ -28,7 +29,6 @@ public class Potion extends EquipementOffensif implements ContenuCase {
             }
         }
     }
-
 
     // Redéfinition de la méthode toString
     @Override

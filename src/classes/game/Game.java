@@ -12,6 +12,7 @@ public class Game {
     private int[] plateau;
     private Dice dice;
     private String menu;
+    private boolean partieTerminee = false;
 
     // Méthode pour configurer le dé utilisé dans le jeu
     public void choisirDe(Dice dice) {
@@ -30,7 +31,7 @@ public class Game {
 //        choisirDe(new SixFaceDice());
 
         // Boucle pour déplacer le personnage jusqu'à la dernière case du plateau
-        while (true) {
+        while (!partieTerminee) {
             int diceRoll = dice.roll(); // Utilisation du dé choisi pour le lancer
             int positionFinale = deplacement(personnage, diceRoll);
             // Afficher le déplacement
@@ -43,14 +44,20 @@ public class Game {
             if (contenuCase != null) {
                 System.out.print("La case contient : ");
                 // Appeler la méthode interaction de la case
-                contenuCase.interaction(personnage);
+                contenuCase.interaction(personnage, menu, this);
             }
             System.out.println("niveau de vie  : " + personnage.getNiveauVie());
             System.out.println("force d'attaque  : " + personnage.getForceAttaqueActuelle());
+
             // Vérifier la condition de victoire
             if (personnage.getPosition() == nombreCase) {
-                menu.afficherVictoire(this, personnage);  // le joueur a gagné !
+                menu.afficherVictoire();  // le joueur a gagné !
                 break; // Sortir de la boucle
+            }
+
+            //Vérifier si la partie est terminée
+            if (partieTerminee) {
+                break;
             }
 
             // Vérifier si le personnage est sorti du plateau
@@ -58,6 +65,10 @@ public class Game {
                 throw new PersonnageHorsPlateauException();
             }
         }
+    }
+
+    public void terminerPartie() {
+        partieTerminee = true;
     }
 
     public int deplacement(Personnage personnage, int diceRoll) {
