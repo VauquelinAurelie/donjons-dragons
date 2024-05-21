@@ -1,11 +1,12 @@
 package classes.game;
 import classes.Dice.OneFaceDice;
+import classes.Dice.SixFaceDice;
 import classes.plateau.PersonnageHorsPlateauException;
 import classes.plateau.Plateau;
 import classes.personnages.Personnage;
 import classes.Dice.Dice;
 import classes.plateau.ContenuCase;
-
+import java.util.Scanner;
 
 public class Game {
     private String joueur;
@@ -27,12 +28,12 @@ public class Game {
         int nombreCase = plateau.getNombreCase();
 
         // choix du dé
-        choisirDe(new OneFaceDice());
-//        choisirDe(new SixFaceDice());
+//        choisirDe(new OneFaceDice());
+        choisirDe(new SixFaceDice());
 
         // Boucle pour déplacer le personnage jusqu'à la dernière case du plateau
         while (!partieTerminee) {
-            int diceRoll = dice.roll(); // Utilisation du dé choisi pour le lancer
+            int diceRoll = dice.roll(); // lancer du dé choisi
             int positionFinale = deplacement(personnage, diceRoll);
             // Afficher le déplacement
             menu.afficherDeplacement(this, personnage, positionFinale, diceRoll);
@@ -67,6 +68,13 @@ public class Game {
         }
     }
 
+    public void fuir(Personnage personnage) {
+        // Utilisation du dé pour déterminer le recul aléatoire
+        int diceRoll = dice.roll();
+        int newPosition = personnage.getPosition() - diceRoll;
+        personnage.setPosition(newPosition);
+        System.out.println("Vous avez fui de " + diceRoll + " cases !");
+    }
     public void terminerPartie() {
         partieTerminee = true;
     }

@@ -1,9 +1,11 @@
 package classes.game;
+
 import classes.plateau.PersonnageHorsPlateauException;
 import classes.plateau.Plateau;
 import classes.personnages.Guerrier;
 import classes.personnages.Magicien;
 import classes.personnages.Personnage;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -67,7 +69,7 @@ public class Menu {
         Personnage personnage = null;
 
         if (type.equalsIgnoreCase("Guerrier")) {
-            personnage = new Guerrier(nom,"Pas d'arme");
+            personnage = new Guerrier(nom, "Pas d'arme");
         } else if (type.equalsIgnoreCase("Magicien")) {
             personnage = new Magicien(nom);
         } else {
@@ -139,9 +141,22 @@ public class Menu {
         System.out.println("Vous êtes sur la case : " + personnage.getPosition());
     }
 
+    // Demander si le personnage souhaite fuir avant le combat
+    public boolean demandeFuite(Game game, Personnage personnage) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Souhaitez-vous fuir ? (oui/non)");
+        String choixFuite = scanner.nextLine().toLowerCase();
+
+        if (choixFuite.equals("oui")) {
+            game.fuir(personnage);
+            return true; // Retourner true si le personnage fuit
+        } return false; // Retourner false si le personnage ne fuit pas
+    }
+
     public void afficherVictoire() {
         System.out.println("Vous avez gagné !");
     }
+
     public void afficherDefaite() {
         System.out.println("Vous avez perdu !");
     }

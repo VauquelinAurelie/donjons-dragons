@@ -54,26 +54,6 @@ public abstract class Personnage {
         return offensif;
     }
 
-//    public void setOffensif(EquipementOffensif offensif) {
-//        this.offensif = offensif;
-//        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est un sort
-//        if (offensif instanceof Sort sort) {
-//            this.forceAttaqueActuelle += ((Sort) offensif).getNiveauAttaque();
-//            this.offensif = sort;
-//            this.niveauVieActuel += sort.getNiveauVie();
-//        }
-//        // Mise à jour de la force d'attaque actuelle si l'équipement offensif est une arme
-//        if (offensif instanceof Arme arme) {
-//            this.forceAttaqueActuelle += ((Arme) offensif).getNiveauAttaque();
-//            this.offensif = arme;
-//            this.niveauVieActuel += arme.getNiveauVie();
-//        }
-//        // Mise à jour du niveau de vie actuel si l'équipement offensif est une potion
-//        if (offensif instanceof Potion ) {
-//            this.niveauVieActuel += ((Potion) offensif).getNiveauVie();
-//        }
-//    }
-
     public int getNiveauVie() {
         return niveauVie;
     }
@@ -91,7 +71,6 @@ public abstract class Personnage {
 
     public int getForceAttaqueActuelle() { return forceAttaqueActuelle; }
     public void setForceAttaqueActuelle(int forceAttaqueActuelle) { this.forceAttaqueActuelle = forceAttaqueActuelle; }
-
 
     public Potion getPotion() {
         return potion;
@@ -127,6 +106,7 @@ public abstract class Personnage {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
     public void subirDegats(int degats) {
         this.niveauVie -= degats;
     }
