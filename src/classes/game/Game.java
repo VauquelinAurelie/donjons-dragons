@@ -6,6 +6,8 @@ import classes.plateau.Plateau;
 import classes.personnages.Personnage;
 import classes.Dice.Dice;
 import classes.plateau.ContenuCase;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Game {
@@ -74,10 +76,14 @@ public class Game {
         int newPosition = personnage.getPosition() - diceRoll;
         personnage.setPosition(newPosition);
         System.out.println("Vous avez fui de " + diceRoll + " cases !");
+        System.out.println("Vous êtes sur la cases : " + personnage.getPosition());
     }
     public void terminerPartie() {
         partieTerminee = true;
     }
+    public void reset() {
+        partieTerminee =false;
+    }  // Réinitialiser d'autres variables d'état du jeu pour rejouer
 
     public int deplacement(Personnage personnage, int diceRoll) {
         int currentPosition = personnage.getPosition();

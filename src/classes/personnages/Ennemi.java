@@ -61,40 +61,7 @@ public class Ennemi implements ContenuCase {
                     game.terminerPartie();
                 }
             }
-
         }
-
-
-
-
-
-
-//        // Le personnage attaque l'ennemi
-//        int degatsInfliges = personnage.getForceAttaqueActuelle();// Force de base du personnage
-//        subirDegats(degatsInfliges);
-//
-//        // Afficher le niveau de vie de l'ennemi après l'attaque
-//        System.out.println("Niveau de vie de l'ennemi " + getNom() + " : " + getNiveauVie());
-//
-//        // Vérifie si l'ennemi est vaincu
-//        if (getNiveauVie() <= 0) {
-//            System.out.println("L'ennemi est vaincu !");
-//        } else {
-//            // L'ennemi contre-attaque
-//            int degatsEnnemi = getNiveauAttaque(); // Utilisation de la force d'attaque du personnage
-//            personnage.subirDegats(degatsEnnemi); // Le personnage subit les dégâts de l'ennemi
-//
-//            // Afficher le niveau de vie du personnage après la contre-attaque de l'ennemi
-//            System.out.println("L'ennemi " + this.nom + " a subi " + degatsInfliges + " points de dégâts.");
-//            System.out.println("Nouveau niveau de vie du personnage : " + personnage.getNiveauVie());
-//
-//            // Vérifie si le personnage est vaincu
-//            if (personnage.getNiveauVie() <= 0) {
-//                System.out.println("Le personnage est vaincu !");
-//                menu.afficherDefaite();
-//                game.terminerPartie();
-//            }
-//        }
     }
 
     public void subirDegats(int degats) {

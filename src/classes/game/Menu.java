@@ -1,5 +1,4 @@
 package classes.game;
-
 import classes.plateau.PersonnageHorsPlateauException;
 import classes.plateau.Plateau;
 import classes.personnages.Guerrier;
@@ -124,6 +123,7 @@ public class Menu {
         switch (choix) {
             case 1:
                 // Recommencer une partie en relançant la méthode demarrerPartie
+                game.reset();
                 demarrerPartie(personnage, game);
                 break;
             case 2:
